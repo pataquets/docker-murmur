@@ -4,7 +4,7 @@ RUN \
   echo "deb http://ppa.launchpad.net/mumble/release/ubuntu $(lsb_release -cs) main" \
     | tee /etc/apt/sources.list.d/mumble.list && \
   DEBIAN_FRONTEND=noniteractive \
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 7F05CF9E
+    apt-key adv --keyserver hkp://hkps.pool.sks-keyservers.net --recv-keys 7F05CF9E
 
 RUN \
   apt-get update && \
