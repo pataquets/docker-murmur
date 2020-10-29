@@ -1,7 +1,8 @@
 FROM pataquets/ubuntu:trusty
 
 RUN \
-  echo "deb http://ppa.launchpad.net/mumble/release/ubuntu $(lsb_release -cs) main" \
+  . /etc/lsb-release && \
+  echo "deb http://ppa.launchpad.net/mumble/release/ubuntu ${DISTRIB_CODENAME} main" \
     | tee /etc/apt/sources.list.d/mumble.list && \
   DEBIAN_FRONTEND=noniteractive \
     apt-key adv --keyserver hkp://hkps.pool.sks-keyservers.net --recv-keys 7F05CF9E
