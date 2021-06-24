@@ -4,12 +4,14 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN \
   apt-get update && \
-  apt-get -y install gpg \
+  apt-get -y install \
+    ca-certificates \
+    gpg \
   && \
   . /etc/lsb-release && \
   echo "deb http://ppa.launchpad.net/mumble/release/ubuntu ${DISTRIB_CODENAME} main" \
     | tee /etc/apt/sources.list.d/mumble.list && \
-  apt-key adv --keyserver hkp://hkps.pool.sks-keyservers.net --recv-keys 7F05CF9E \
+  apt-key adv --keyserver hkps://keyserver.ubuntu.com --recv-keys 85DECED27F05CF9E \
   && \
   apt-get -y purge --autoremove \
     gpg \
